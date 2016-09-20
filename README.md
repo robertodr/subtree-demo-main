@@ -35,12 +35,14 @@ This demo aims at the interface developers.
 
 0. Fork this repository and its [companion plugin](https://github.com/robertodr/subtree-demo-plugin)
 1. Create a subtree inside the container repository:
-```
-git remote add <plugin-alias> <plugin-remote>
-git fetch <plugin-alias>
-git read-tree --prefix=<plugin-local> -u <plugin-alias>/<plugin-branch>
-git push
-```
+
+   ```
+   git remote add <plugin-alias> <plugin-remote>
+   git fetch <plugin-alias>
+   git read-tree --prefix=<plugin-local> -u <plugin-alias>/<plugin-branch>
+   git push
+   ```
+
    The placeholders in angular brackets can be decided by the user:
    * `<plugin-alias>` is a convenient alias for the remote of the plugin
    * `<plugin-remote>` is the full address of the plugin remote repository
@@ -51,16 +53,19 @@ git push
 3. Make an arbitrary modification to the plugin source code in its own
    repository and push it. In this way you'll be able to try out an update of
    the plugin source code from remote:
-```
-git fetch
-git merge -s subtree --squash <plugin-alias>/<plugin-branch>
-git commit -m "Updated plugin"
-git push
-```
+
+   ```
+   git fetch
+   git merge -s subtree --squash <plugin-alias>/<plugin-branch>
+   git commit -m "Updated plugin"
+   git push
+   ```
+
    In case the merge fails, reset it first and then try:
-```
-git merge -X subtree=<plugin-local> --squash <plugin-alias>/<plugin-branch>
-```
+
+   ```
+   git merge -X subtree=<plugin-local> --squash <plugin-alias>/<plugin-branch>
+   ```
 
 Modifications to the source code within the main repository can fall into one
 of the following four scenarios:
